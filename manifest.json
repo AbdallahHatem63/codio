@@ -1,10 +1,10 @@
 {
-  "name": "QR Scanner & Generator",
-  "short_name": "QR App",
-  "start_url": "/",
+  "name": "Codio QR App",
+  "short_name": "Codio",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#000000",
+  "theme_color": "#8d3226",
   "icons": [
     {
       "src": "icons/logo-192.png",
