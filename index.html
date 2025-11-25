@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <title>codio😉</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="codio.png">
-    <link rel="manifest" href="manifest.json">
+<link rel="icon" href="codio.png">
+<link rel="manifest" href="manifest.json">
 
 <!-- Icons for Android -->
 <link rel="icon" type="image/png" sizes="192x192" href="icons/logo-192.png">
@@ -133,6 +133,7 @@
 <button class="btn" onclick="location.href='create.html'">إنشاء QR Code</button>
 <button class="btn" onclick="location.href='scan.html'">مسح QR Code</button>
 <button class="btn" onclick="location.href='ocr.html'">قراءة نصوص</button>
+
 <footer class="footer">
   <p class="rights">جميع الحقوق محفوظة © 2025</p>
 
@@ -152,15 +153,25 @@
     </a>
   </div>
 </footer>
+
 <script>
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
 }
 </script>
 
+<script>
+  async function requestNotificationPermission() {
+    const permission = await Notification.requestPermission();
+    if (permission === "granted") {
+      console.log("Notifications enabled");
+    } else {
+      console.log("Notifications blocked");
+    }
+  }
+
+  requestNotificationPermission();
+</script>
+
 </body>
 </html>
-
-
-
-
