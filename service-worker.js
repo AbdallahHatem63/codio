@@ -1,7 +1,11 @@
-self.addEventListener("install", () => {
-  console.log("Service Worker Installed 👍");
+self.addEventListener("push", function (event) {
+  const data = event.data.json();
+
+  event.waitUntil(
+    self.registration.showNotification(data.title, {
+      body: data.body,
+      icon: "icons/codio.png"
+    })
+  );
 });
 
-self.addEventListener("fetch", (event) => {
-  event.respondWith(fetch(event.request));
-});
