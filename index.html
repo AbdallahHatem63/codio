@@ -172,6 +172,21 @@ if ("serviceWorker" in navigator) {
 
   requestNotificationPermission();
 </script>
+  <script>
+async function subscribePush() {
+  const reg = await navigator.serviceWorker.ready;
+
+  const subscription = await reg.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: "VAPID_PUBLIC_KEY"
+  });
+
+  console.log("User Subscribed:", JSON.stringify(subscription));
+}
+subscribePush();
+</script>
+
 
 </body>
 </html>
+
