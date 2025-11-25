@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>إنشاء QR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    background: #fff2f9;
+    font-family: Arial;
+    text-align: center;
+    padding: 20px;
+  }
+
+  input {
+    width: 90%;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 12px;
+    border: 1px solid #aaa;
+    margin-top: 20px;
+    padding: 5px;
+  }
+
+  button {
+    margin-top: 20px;
+    background: #ff4f9a;
+    color: white;
+    font-size: 22px;
+    border-radius: 12px;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    margin-top: 25px;
+    width: 300px;
+  }
+
+  #downloadBtn {
+    display: none;
+    background: #2929ff;
+  }
+</style>
+
+</head>
+<body>
+
+<h1>إنشاء QR Code</h1>
+
+<input id="text" type="text" placeholder="اكتب النص هنا">
+
+<button onclick="makeQR()">إنشاء</button>
+
+<br>
+<img id="qrImage">
+
+<button id="downloadBtn" onclick="downloadQR()">تحميل QR</button>
+
+<script>
+function makeQR() {
+  let text = document.getElementById("text").value;
+  if (text.trim() === "") return alert("اكتب نص!");
+
+  let url =
+    "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" +
+    encodeURIComponent(text);
+
+  const img = document.getElementById("qrImage");
+  img.src = url;
+
+  document.getElementById("downloadBtn").style.display = "inline-block";
+}
+
+function downloadQR() {
+  const link = document.createElement("a");
+  link.href = document.getElementById("qrImage").src;
+  link.download = "QRCode.png";
+  link.click();
+}
+</script>
+
+</body>
+</html>

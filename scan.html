@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>مسح QR Code</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    background: #e8f9ff;
+    font-family: Arial;
+    text-align: center;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  #reader {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+  }
+
+  h2 {
+    margin-top: 25px;
+    background: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+</style>
+
+<!-- مكتبة html5-qrcode -->
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+</head>
+<body>
+
+<h1>مسح QR Code</h1>
+
+<div id="reader"></div>
+
+<h2 id="result">النتيجة: لا يوجد</h2>
+
+<script>
+function onScanSuccess(decodedText) {
+  document.getElementById("result").innerText = "النتيجة: " + decodedText;
+}
+
+function onScanError(errorMessage) {
+  // يتم تجاهل الأخطاء أثناء المسح المستمر
+}
+
+// تشغيل الكاميرا ومسح QR مباشرة
+const html5QrCode = new Html5Qrcode("reader");
+
+html5QrCode.start(
+  { facingMode: "environment" },  // كاميرا الخلفية
+  {
+    fps: 10,    // سرعة المسح
+    qrbox: 250  // مساحة المسح
+  },
+  onScanSuccess,
+  onScanError
+);
+
+// لرفع صورة (لو عايز تضيفه لاحقًا)
+// html5QrCode.scanFile(...)
+</script>
+
+</body>
+</html>
