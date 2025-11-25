@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <title>مسح QR Code</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="logo.png">
 
 <style>
   body {
-    background: #e8f9ff;
+    background: black;
     font-family: Arial;
     text-align: center;
     padding: 20px;
@@ -17,6 +16,7 @@
   h1 {
     font-size: 28px;
     margin-bottom: 20px;
+    color: white;
   }
 
   #reader {
@@ -44,11 +44,11 @@
 
 <div id="reader"></div>
 
-<h2 id="result">النتيجة: لا يوجد</h2>
+<h2 id="result">النتيجة:جاري قراءه الصوره</h2>
 
 <script>
 function onScanSuccess(decodedText) {
-  document.getElementById("result").innerText = "النتيجة: " + decodedText;
+  document.getElementById("result").innerText = " " + decodedText;
 }
 
 function onScanError(errorMessage) {
@@ -73,6 +73,4 @@ html5QrCode.start(
 </script>
 
 </body>
-
 </html>
-
