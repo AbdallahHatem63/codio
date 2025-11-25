@@ -9,14 +9,15 @@
   "theme_color": "#8d3226",
   "icons": [
     {
-      "src": "icons/logo-192.png",
+      "src": "icons/codio.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icons/logo-512.png",
+      "src": "icons/codio.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ]
 }
+
