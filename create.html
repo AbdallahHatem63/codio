@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <title>إنشاء QR</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="logo.png">
 
 <style>
   body {
-    background: #fff2f9;
+    background: black;
     font-family: Arial;
     text-align: center;
     padding: 20px;
@@ -49,6 +48,80 @@
     display: none;
     background: #2929ff;
   }
+  h1 {
+    color: white;
+  }
+  .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #111; /* أسود داكن */
+  text-align: center;
+  padding: 15px 0;
+  border-top: 2px solid #444;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.5);
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+}
+
+.footer .rights {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #fff; /* أبيض للنص */
+}
+
+.footer .contact-title {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #ccc; /* رمادي فاتح */
+}
+
+.social-icons {
+  margin-top: 8px;
+}
+
+.social-link {
+  display: inline-block;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff; /* خلفية بيضاء للأيقونات إذا الخلفية سوداء */
+  padding: 5px;
+}
+
+/* تأثير عند المرور على الأيقونة */
+.social-link:hover .icon {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* ألوان أيقونات حسب الشبكة */
+.insta .icon {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.whatsapp .icon {
+  background: #25D366;
+}
+
+.fb .icon {
+  background: #3b5998;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 480px) {
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+}
 </style>
 
 </head>
@@ -64,6 +137,25 @@
 <img id="qrImage">
 
 <button id="downloadBtn" onclick="downloadQR()">تحميل QR</button>
+<footer class="footer">
+  <p class="rights">جميع الحقوق محفوظة © 2025</p>
+
+  <h3 class="contact-title">تواصل معنا</h3>
+
+  <div class="social-icons">
+    <a href="https://instagram.com/Your_Instagram" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="icon">
+    </a>
+
+    <a href="https://wa.me/YourNumber" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="icon">
+    </a>
+
+    <a href="https://facebook.com/Your_Facebook" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" class="icon">
+    </a>
+  </div>
+</footer>
 
 <script>
 function makeQR() {
@@ -89,5 +181,4 @@ function downloadQR() {
 </script>
 
 </body>
-
 </html>
