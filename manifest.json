@@ -1,7 +1,9 @@
 {
   "name": "Codio QR App",
   "short_name": "Codio",
+  "description": "تطبيق يقوم بإنشاء ومسح QR Code وقراءة النصوص وتحويل الصور.",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#8d3226",
